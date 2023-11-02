@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shangmi?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+
+#配置mybatis-plus日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #配置MyBatis-Plus操作表的默认前缀
+  global-config:
+    db-config:
+      table-prefix: t_
+      #      配置MyBatis-Plus的主键策略
+      #      AUTO，配合数据库设置自增主键，可以实现主键的自动增长，类型为nmber；注意在创建表时勾选 主键自增
+      #      INPUT，由用户输入；
+      #      NONE，不设置，等同于INPUT；
+      #      ASSIGN_ID，只有当用户未输入时，采用雪花算法生成一个适用于分布式环境的全局唯一主键，类型可以是String和number；
+      #      ASSIGN_UUID，只有当用户未输入时，生成一个String类型的主键，但不保证全局唯一；
+      id-type: auto
+  #配置类型别名所对应的包
+  type-aliases-package: com.example.entity

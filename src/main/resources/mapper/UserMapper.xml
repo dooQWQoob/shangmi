@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+
+    <update id="recoveryUser">
+        update t_user set is_delete=0 where u_phone=#{userPhone} and u_pwd=#{userPwd};
+    </update>
+
+    <delete id="removeUserById">
+        delete from t_user where u_id=#{uid};
+    </delete>
+</mapper>
